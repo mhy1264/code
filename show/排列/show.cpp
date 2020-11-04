@@ -37,22 +37,24 @@ int main()
     cout<<maxp<<" "<<finalbudget<<endl;
     while(next_permutation(team,team+N))
     {
-        if(cbudget+team[i].second<=a)
+        for(i=0;i<N;i++)
         {
-            cbudget+=team[i].second;
-            cpop+=team[i].first;
-        }
-        else
-        {
-            if(cpop>maxp)
+            if(cbudget+team[i].second<=a)
             {
-                maxp=cpop;
-                finalbudget=cbudget;
-                cout<<maxp<<" "<<finalbudget<<endl;
+                cbudget+=team[i].second;
+                cpop+=team[i].first;
             }
+            else
+            {
+                if(cpop>maxp)
+                {
+                    maxp=cpop;
+                    finalbudget=cbudget;
+                    cout<<maxp<<" "<<finalbudget<<endl;
+                }
+            }
+            cbudget=0;
+            cpop=0;
         }
-        cbudget=0;
-        cpop=0;
     }
-    cout<<maxp<<" "<<finalbudget<<endl;
 }
