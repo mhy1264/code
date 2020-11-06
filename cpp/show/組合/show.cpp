@@ -24,7 +24,7 @@ void binary(int situation[],int N)
 int main()
 {
     int a,N,i,j,cpop=0,cbud=0,mpop=0,mbud;
-//    cin>>a;
+    cin>>a;
     cin>>N;
     pair <int,int> team[i]; // pop bud
     int situation[N];
@@ -33,22 +33,23 @@ int main()
     {
         situation[i]=0;
     }
-    /*
+
     for(i=0;i<N;i++)
     {
         cin>>team[i].first>>team[i].second;
     }
-*/
-    for(i=0;i<pow(N,2);i++)
+
+    for(i=0;i<pow(2,N);i++)
     {
         cout<<i<<"\t";
         binary(situation,N);
+        /*
         for(j=0;j<N;j++)
         {
             cout<<situation[j];
         }
         cout<<endl;
-        /*
+*/
         for(j=0;j<N;j++)
         {
             cpop+=situation[j]*team[j].first;
@@ -57,13 +58,13 @@ int main()
         cout<<cpop<<" "<<cbud<<endl;
         if(cpop>mpop && a>cbud)
         {
-            cout<<"===============>YES"<<endl;
+//           cout<<"===============>YES"<<endl;
             mbud=cbud;
             mpop=cpop;
         }
         cpop=0;
         cbud=0;
-*/
+
     }
-  //  cout<<mpop<<" "<<mbud;
+    cout<<mpop<<" "<<mbud;
 }
