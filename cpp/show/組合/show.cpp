@@ -55,7 +55,6 @@ int main()
             cpop+=situation[j]*team[j].first;
             cbud+=situation[j]*team[j].second;
         }
-        cout<<cpop<<" "<<cbud<<endl;
         if(cpop>mpop && a>cbud)
         {
 //           cout<<"===============>YES"<<endl;

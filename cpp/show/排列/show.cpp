@@ -18,32 +18,32 @@ void show(int number[],int N)
     }
     cout<<endl;
 }
+
 void add(int number[],int N)
 {
     number[0]++;
-    show(number,N);
     int i;
     for(i=0;i<=N;i++)
     {
-        if(number[i]==N)
+        if(number[i]>N)
         {
             number[i]=0;
             number[i+1]++;
         }
     }
-    show(number,N);
 }
 
 int check_repeat(int number[],int N)
 {
-    int i,compose[N],mup;
+    int i,compose[N],mup=1;
+    reset(compose,N);
     for(i=0;i<N;i++)
     {
         compose[number[i]]++;
     }
-    for(i=0;i<N;i++)
+    for(i=1;i<=N;i++)
     {
-        mup*=compose[i];
+        mup=mup*compose[i];
     }
     if(mup==1)
     {
@@ -54,12 +54,13 @@ int check_repeat(int number[],int N)
         return 0;
     }
 }
+
 int main()
 {
     int a,N,i,j;
     int cpop=0,cbud=0,mpop=0,tbud=0;
     cin>>a>>N;
-    pair<int,int> team[i];
+    pair<int,int> team[N];
     int number[N+1];
     for(i=0;i<N;i++)
     {
@@ -69,7 +70,6 @@ int main()
     while(number[N]==0)
     {
         add(number,N);
-  //      show(number,N);
         if(check_repeat(number,N))
         {
             if(team[i].second+cbud<a)

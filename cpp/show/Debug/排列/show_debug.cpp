@@ -32,31 +32,42 @@ void add(int number[],int N)
     }
 }
 
-/// FIXME (Ming#1#11/07/20): 待debug ... ...
-///1* 已知add( )無問題
-///2*似乎是 compose[number[i]出問題(L43)
 int check_repeat(int number[],int N)
 {
     int i,compose[N],mup=1;
     reset(compose,N);
-    cout<<"com=>>";
+
+//    show(number,N);
+
     for(i=0;i<N;i++)
     {
-        cout<<compose[number[i]]<<" ";
         compose[number[i]]++;
     }
-    for(i=0;i<N;i++)
+//    cout<<"compose: ";
+//    show(compose,N);
+    for(i=1;i<=N;i++)
     {
-        mup*=compose[i];
+        mup=mup*compose[i];
     }
+//    cout<<"mup: "<<mup<<endl;
     if(mup==1)
     {
+//        cout<<"======================================YES"<<endl;
         return 1;
     }
     else
     {
+ //       cout<<"NO"<<endl;
         return 0;
     }
+
+
+/*
+    number[]={0,0,1}
+    compose[]={2 1 0 }
+*/
+    cout<<endl;
+
 }
 
 int main()
@@ -67,7 +78,9 @@ int main()
     while(number[N]==0)
     {
         add(number,N);
-        show(number,N);
-        check_repeat(number,N);
+        if(check_repeat(number,N))
+        {
+
+        }
     }
 }
