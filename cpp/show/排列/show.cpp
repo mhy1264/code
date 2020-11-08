@@ -70,6 +70,11 @@ int main()
     while(number[N]==0)
     {
         add(number,N);
+
+/* Debug (Ming#1#11/09/20): if(check_repeat())«Ý½T»{
+=>²¾¦Üdebug°Ï
+ */
+
         if(check_repeat(number,N))
         {
             if(team[i].second+cbud<a)
@@ -79,6 +84,7 @@ int main()
             }
             else
             {
+
                 if(cpop<mpop)
                 {
                     mpop=cpop;
